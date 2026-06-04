@@ -17,4 +17,4 @@ RUN crawl4ai-setup
 
 EXPOSE 11235
 
-CMD ["uvicorn", "crawl4ai.server:app", "--host", "0.0.0.0", "--port", "11235"]
+CMD ["crawl4ai-server"]
