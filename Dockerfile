@@ -11,10 +11,14 @@ RUN apt-get update && apt-get install -y \
     libpango-1.0-0 libcairo2 libasound2 \
     && rm -rf /var/lib/apt/lists/*
 
-RUN pip install crawl4ai uvicorn fastapi
+RUN pip install crawl4ai fastapi uvicorn
 
 RUN crawl4ai-setup
 
+WORKDIR /app
+
+COPY server.py .
+
 EXPOSE 11235
 
-CMD ["crawl4ai-server"]
+CMD ["python", "server.py"]
